@@ -29,7 +29,7 @@ build:
     - go test ./...
 ```
 
-Below is a more advanced `.drone.yml` for need things like HipChat integration.
+Below is a more advanced `.drone.yml` for notification integrations like HipChat.
 
 ```yaml
 
