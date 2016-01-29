@@ -1,0 +1,9 @@
+build:
+  image: golang:1.5.3
+  environment:
+    - GO15VENDOREXPERIMENT=1
+    - GOOS=linux
+    - GOARCH=amd64
+    - CGO_ENABLED=0
+  commands:
+    - go test -cover ./...
