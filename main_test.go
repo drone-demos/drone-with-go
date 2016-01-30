@@ -1,6 +1,13 @@
 package main
 
-import "testing"
+import (
+	"os"
+	"testing"
+)
+
+func TestMain(m *testing.M) {
+	os.Exit(m.Run())
+}
 
 func TestHelloWorld(t *testing.T) {
 	if HelloWorld() != "hello world" {
