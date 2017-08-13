@@ -1,12 +1,16 @@
-build:
-  image: golang:1.5
-  environment:
-    - GO15VENDOREXPERIMENT=1
-    - CGO_ENABLED=0
-  commands:
-    - go test -cover -coverprofile coverage.out
+workspace:
+  base: /go
+    path: src/github.com/josebarn/drone-with-go
+pipeline:
+  build:
+    image: golang:1.5
+    environment:
+      - GO15VENDOREXPERIMENT=1
+      - CGO_ENABLED=0
+    commands:
+      - go test -cover -coverprofile coverage.out
 
-publish:
-  coverage:
-    when:
-      branch: master
+  publish:
+    coverage:
+      when:
+        branch: master
