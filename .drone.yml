@@ -13,7 +13,8 @@ pipeline:
     repo: 995121555896.dkr.ecr.us-east-1.amazonaws.com/cloudlock/test-sit-ci-built-svc
     dockerfile: ./Dockerfile
     context: .
-    storage_driver: "aufs"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
 
 matrix:
   IMAGE:
