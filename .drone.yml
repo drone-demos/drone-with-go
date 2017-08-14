@@ -5,6 +5,14 @@ pipeline:
       - go build
       - go test
 
+  ecr:
+    image: plugins/ecr
+    repo: 995121555896.dkr.ecr.us-east-1.amazonaws.com/cloudlock/test-sit-ci-built-svc
+    dockerfile: ./Dockerfile
+    context: .
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
 matrix:
   IMAGE:
     - golang:1.7
