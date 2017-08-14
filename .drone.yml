@@ -6,7 +6,7 @@ pipeline:
       - go test
 
   ecr:
-    image: plugins/drone-ecr
+    image: plugins/ecr
     secret_key: ${ECR_SECRET_KEY}
     access_key: ${ECR_ACCESS_KEY}
     repo: 995121555896.dkr.ecr.us-east-1.amazonaws.com/cloudlock/test-sit-ci-built-svc
