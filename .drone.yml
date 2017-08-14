@@ -9,14 +9,14 @@ pipeline:
     image: plugins/ecr
     secret_key: ${ECR_SECRET_KEY}
     access_key: ${ECR_ACCESS_KEY}
+    region: us-east-1
     repo: 995121555896.dkr.ecr.us-east-1.amazonaws.com/cloudlock/test-sit-ci-built-svc
     dockerfile: ./Dockerfile
     context: .
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
+    storage_driver: "aufs"
 
 matrix:
   IMAGE:
-    - golang:1.7
-    - golang:1.8
+#    - golang:1.7
+#    - golang:1.8
     - golang:latest
