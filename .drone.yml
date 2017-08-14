@@ -6,7 +6,7 @@ pipeline:
       - go test
 
   ecr:
-    image: plugins/drone-ecr
+    image: plugins/ecr
     secret_key: ${ECR_SECRET_KEY}
     access_key: ${ECR_ACCESS_KEY}
     region: us-east-1
