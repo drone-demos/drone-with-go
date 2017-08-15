@@ -14,7 +14,7 @@ pipeline:
     repo: josebarn/hello-world
     tags: [ 1.0.0, 1.0, latest ]
     dockerfile: ./docker/Dockerfile
-    secrets: [ docker_username, docker_password ]
+    secrets: [ DOCKER_USERNAME, DOCKER_PASSWORD ]
     debug: true
 matrix:
   IMAGE:
