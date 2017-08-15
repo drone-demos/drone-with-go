@@ -1,1 +1,45 @@
-eyJhbGciOiJIUzI1NiJ9.cGlwZWxpbmU6CiAgYnVpbGQ6CiAgICBpbWFnZTogJHtJTUFHRX0KICAgIGNvbW1hbmRzOgogICAgICAtIGdvIGJ1aWxkCiAgICAgIC0gZ28gdGVzdAoKICBlY3I6CiAgICBpbWFnZTogcGx1Z2lucy9lY3IKICAgIHJlZ2lvbjogdXMtZWFzdC0xCiAgICBhY2Nlc3Nfa2V5OiAke0VDUl9BQ0NFU1NfS0VZfQogICAgc2VjcmV0X2tleTogJHtFQ1JfU0VDUkVUX0tFWX0KICAgIHJlcG86IDk5NTEyMTU1NTg5Ni5ka3IuZWNyLnVzLWVhc3QtMS5hbWF6b25hd3MuY29tL2Nsb3VkbG9jay90ZXN0LXNpdC1jaS1idWlsdC1zdmMKICAgIGRvY2tlcmZpbGU6IC4vRG9ja2VyZmlsZQogICAgY29udGV4dDogLgogICAgdm9sdW1lczoKICAgICAgLSAvdmFyL3J1bi9kb2NrZXIuc29jazovdmFyL3J1bi9kb2NrZXIuc29jawoKbWF0cml4OgogIElNQUdFOgojICAgIC0gZ29sYW5nOjEuNwojICAgIC0gZ29sYW5nOjEuOAogICAgLSBnb2xhbmc6bGF0ZXN0Cg.KJdJSbq6nS03KT5zIk4chwbi5dYvmmVf1gXpeuKISV8
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="author" content="bradrydzewski">
+	<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+	<link rel="shortcut icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="shortcut icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+	<title></title>
+	<script>
+			window.ENV = {};
+			window.ENV.server = window.location.protocol+"//"+window.location.host;
+			window.ENV.csrf = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZXh0Ijoiam9zZWJhcm4iLCJ0eXBlIjoiY3NyZiJ9.C9BBh63PSEgQEU1Hd6HQVQpnA50f7YGJrBOegX5Pw0I"
+			
+			window.USER = {"id":1,"login":"josebarn","email":"joseph.barnett@cloudlock.com","avatar_url":"https://avatars2.githubusercontent.com/u/25182631?v=4","active":false,"synced":1502764196,"admin":true};
+			
+	</script>
+	<script>
+		
+		
+		if (!window.EventSource) {
+			var ssePolyfill = document.createElement("script");
+			ssePolyfill.src = "https://cdnjs.cloudflare.com/ajax/libs/event-source-polyfill/0.0.9/eventsource.min.js";
+			document.body.appendChild(ssePolyfill);
+		}
+	</script>
+	<script src="/bower_components/webcomponentsjs/webcomponents-loader.js"></script>
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono">
+	<link rel="import" href="/src/drone/drone-app.html">
+
+	<style>
+		html, body {
+			padding:0px;
+			margin:0px;
+		}
+	</style>
+</head>
+<body>
+	<drone-app></drone-app>
+</body>
+</html>

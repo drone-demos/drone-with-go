@@ -15,7 +15,8 @@ pipeline:
     context: .
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-
+    environment:
+      - DOCKER_LAUNCH_DEBUG=true
 matrix:
   IMAGE:
 #    - golang:1.7
