@@ -15,7 +15,7 @@ pipeline:
     tags: [ 1.0.0, 1.0, latest ]
     dockerfile: ./docker/Dockerfile
     secrets: [ docker_username, docker_password ]
-    
+    debug: true
 matrix:
   IMAGE:
     - golang:latest
