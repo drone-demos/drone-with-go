@@ -6,9 +6,10 @@ pipeline:
       - go test
 
   ecr:
-    image: peloton/drone-ecs
+    image: plugins/ecr
     region: us-east-1
-    secrets: [ ecs_access_key, ecs_secret_key ]
+    access_key: ${ECR_ACCESS_KEY}
+    secret_key: ${ECR_SECRET_KEY}
     repo: 995121555896.dkr.ecr.us-east-1.amazonaws.com/cloudlock/test-sit-ci-built-svc
     dockerfile: ./Dockerfile
     context: .
