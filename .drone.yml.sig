@@ -12,9 +12,7 @@
 	<script>
 			window.ENV = {};
 			window.ENV.server = window.location.protocol+"//"+window.location.host;
-			window.ENV.csrf = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZXh0Ijoiam9zZWJhcm4iLCJ0eXBlIjoiY3NyZiJ9.C9BBh63PSEgQEU1Hd6HQVQpnA50f7YGJrBOegX5Pw0I"
 			
-			window.USER = {"id":1,"login":"josebarn","email":"joseph.barnett@cloudlock.com","avatar_url":"https://avatars2.githubusercontent.com/u/25182631?v=4","active":false,"synced":1502764196,"admin":true};
 			
 	</script>
 	<script>
