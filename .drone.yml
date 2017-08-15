@@ -9,8 +9,13 @@ pipeline:
     commands:
       - go test
 
+  publish:
+    image: plugins/docker
+    repo: josebarn/hello-world
+    tags: [ 1.0.0, 1.0, latest ]
+    dockerfile: ./docker/Dockerfile
+    secrets: [ docker_username, docker_password ]
+    
 matrix:
   IMAGE:
-    - golang:1.7
-    - golang:1.8
     - golang:latest
