@@ -3,6 +3,10 @@ pipeline:
     image: ${IMAGE}
     commands:
       - go build
+
+  test:
+    image: ${IMAGE}
+    commands:
       - go test
 
 matrix:
