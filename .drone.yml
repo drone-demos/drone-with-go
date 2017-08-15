@@ -1,12 +1,24 @@
-build:
-  image: golang:1.5
-  environment:
-    - GO15VENDOREXPERIMENT=1
-    - CGO_ENABLED=0
-  commands:
-    - go test -cover -coverprofile coverage.out
+pipeline:
+  build:
+    image: ${IMAGE}
+    commands:
+      - go build
+      - go test
 
-publish:
-  coverage:
-    when:
-      branch: master
+  ecr:
+    image: plugins/ecr
+    region: us-east-1
+    access_key: ${ECR_ACCESS_KEY}
+    secret_key: ${ECR_SECRET_KEY}
+    repo: 995121555896.dkr.ecr.us-east-1.amazonaws.com/cloudlock/test-sit-ci-built-svc
+    dockerfile: ./Dockerfile
+    context: .
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - DOCKER_LAUNCH_DEBUG=true
+matrix:
+  IMAGE:
+#    - golang:1.7
+#    - golang:1.8
+    - golang:latest
