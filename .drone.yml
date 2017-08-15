@@ -9,4 +9,3 @@ matrix:
   IMAGE:
     - golang:1.7
     - golang:1.8
-    - golang:latest
