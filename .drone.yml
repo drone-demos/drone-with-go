@@ -1,13 +1,27 @@
+# NOTE: Refer drone Go example http://readme.drone.io/0.5/usage/golang-example/
+workspace:
+  base: /go
+  path: src/github.com/josebarn/drone-with-go
+
 pipeline:
   build:
     image: ${IMAGE}
     commands:
+      - go get ./...
       - go build
+    debug: true
 
-  test:
+  unit-test:
     image: ${IMAGE}
     commands:
-      - go test
+      - go test ./api
+
+  run-tests-in-compose:
+    image: michalpodeszwa/docker-compose:latest
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    commands:
+      - ./script/drone-run-tests.sh api-tests
 
   publish:
     image: plugins/docker
@@ -15,7 +29,8 @@ pipeline:
     tags: [ 1.0.0, 1.0, latest ]
     dockerfile: ./docker/Dockerfile
     secrets: [ DOCKER_USERNAME, DOCKER_PASSWORD ]
-    debug: true
+#    debug: true
+
 matrix:
   IMAGE:
     - golang:latest
