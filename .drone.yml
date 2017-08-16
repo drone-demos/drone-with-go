@@ -5,7 +5,6 @@ workspace:
 
 pipeline:
   build:
-  build:
     image: ${IMAGE}
     commands:
       - go get ./...
