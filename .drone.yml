@@ -16,6 +16,13 @@ pipeline:
     commands:
       - go test ./api
 
+  run-tests-in-compose:
+    image: michalpodeszwa/docker-compose:latest
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    commands:
+      - ./script/drone-run-tests.sh api-tests
+
   publish:
     image: plugins/docker
     repo: josebarn/hello-world

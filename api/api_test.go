@@ -17,7 +17,7 @@ func TestGetRoute(t *testing.T) {
 	ts := httptest.NewServer(r)
 	defer ts.Close()
 	rx := Response{}
-	_, resp := testRequest(t, ts, "GET", "/app/1", nil)
+	_, resp := testRequest(t, ts, "GET", "/api/id/1", nil)
 	err := json.Unmarshal([]byte(resp), &rx)
 	if err != nil {
 		t.Fatalf("Response incorrect form ", resp)

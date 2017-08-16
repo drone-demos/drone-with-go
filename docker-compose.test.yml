@@ -1,0 +1,21 @@
+version: '2'
+
+services:
+
+  app:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    ports:
+     - "8080:8080"
+
+  sut:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile.test
+    links:
+      - "app:target"
+    depends_on:
+      - app
+    environment:
+      SUT_TARGET: app
