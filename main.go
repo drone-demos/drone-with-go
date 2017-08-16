@@ -1,7 +1,7 @@
 package main
 
 import (
-	. "drone-with-go/api"
+	. "github.com/josebarn/drone-with-go/api"
 	"github.com/urfave/cli"
 	"log"
 	"os"
