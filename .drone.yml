@@ -5,9 +5,10 @@ workspace:
 
 pipeline:
   build:
-    image: golang
-    script:
-      - go get
+  build:
+    image: golang:${GO_VERSION}
+    commands:
+      - go get ./...
       - go build
 
   unit-test:
@@ -22,3 +23,9 @@ pipeline:
     dockerfile: ./docker/Dockerfile
     secrets: [ DOCKER_USERNAME, DOCKER_PASSWORD ]
 #    debug: true
+
+matrix:
+ GO_VERSION:
+   - latest
+   - "1.7"
+   - "1.6"
