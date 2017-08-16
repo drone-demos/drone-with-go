@@ -12,7 +12,7 @@ services:
   sut:
     build:
       context: .
-      dockerfile: ./docker/Dockerfile.test
+      dockerfile: ./docker/Dockerfile.sut
     links:
       - "app:target"
     depends_on:
