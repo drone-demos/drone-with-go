@@ -15,6 +15,12 @@
 			"revisionTime": "2017-07-12T12:12:00Z"
 		},
 		{
+			"checksumSHA1": "KlhjFlnkWjrgYdOiUCgD+uuiCRU=",
+			"path": "github.com/go-chi/render",
+			"revision": "9f855fadd4b8cde7773f9ef51f6b2705af239519",
+			"revisionTime": "2017-07-06T22:11:03Z"
+		},
+		{
 			"checksumSHA1": "9LeR7BH4PSu8LRDZ8bY7QY1HXJE=",
 			"path": "github.com/urfave/cli",
 			"revision": "4b90d79a682b4bf685762c7452db20f2a676ecb2",
