@@ -1,12 +1,37 @@
-build:
-  image: golang:1.5
-  environment:
-    - GO15VENDOREXPERIMENT=1
-    - CGO_ENABLED=0
-  commands:
-    - go test -cover -coverprofile coverage.out
+# NOTE: Refer drone Go example http://readme.drone.io/0.5/usage/golang-example/
+workspace:
+  base: /go
+  path: src/github.com/josebarn/drone-with-go
 
-publish:
-  coverage:
+pipeline:
+  build:
+    image: ${IMAGE}
+    commands:
+      - go get ./...
+      - go build
+    debug: true
+
+  unit-test:
+    image: ${IMAGE}
+    commands:
+      - go test ./api
+
+  integration-tests:
+    image: michalpodeszwa/docker-compose:latest
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    commands:
+      - ./script/drone-run-tests.sh api-tests
+
+  publish:
+    image: plugins/docker
+    repo: josebarn/hello-world
+    tags: [ 1.0.0, 1.0, latest ]
+    dockerfile: ./docker/Dockerfile
+    secrets: [ DOCKER_USERNAME, DOCKER_PASSWORD ]
+#    debug: true
     when:
-      branch: master
+      branch: [master]
+matrix:
+  IMAGE:
+    - golang:latest

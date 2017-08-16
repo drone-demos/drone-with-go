@@ -1,0 +1,12 @@
+FROM alpine:latest
+
+RUN apk add --update curl && \
+    rm -rf /var/cache/apk/*
+
+WORKDIR /app
+
+ENV SUT_TARGET undefined
+
+ADD script/container-integ-test.sh /app/test.sh
+
+CMD ["sh", "test.sh"]

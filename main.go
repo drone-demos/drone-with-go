@@ -1,12 +1,33 @@
 package main
 
-import "fmt"
+import (
+	. "github.com/josebarn/drone-with-go/api"
+	"github.com/urfave/cli"
+	"log"
+	"os"
+)
 
 func main() {
-	fmt.Println(HelloWorld())
-}
+	app := cli.NewApp()
 
-// HelloWorld is a function that returns a string containing "hello world".
-func HelloWorld() string {
-	return "hello world"
+	var redis_url string
+	app.Flags = []cli.Flag{
+		cli.StringFlag{
+			Name:        "redis, r",
+			Usage:       "redis server uri",
+			Destination: &redis_url,
+		},
+	}
+
+	app.Action = func(c *cli.Context) error {
+		if len(redis_url) <= 0 {
+			log.Println("not using redis server")
+		}
+		ApiInit()
+		return nil
+	}
+
+	app.HideVersion = true
+
+	app.Run(os.Args)
 }
