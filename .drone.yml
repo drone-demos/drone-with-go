@@ -6,14 +6,14 @@ workspace:
 pipeline:
   build:
   build:
-    image: golang:${GO_VERSION}
+    image: ${IMAGE}
     commands:
       - go get ./...
       - go build
     debug: true
 
   unit-test:
-    image: golang:${GO_VERSION}
+    image: ${IMAGE}
     commands:
       - go test ./api
 
@@ -26,7 +26,5 @@ pipeline:
 #    debug: true
 
 matrix:
- GO_VERSION:
-   - latest
-   - "1.7"
-   - "1.6"
+  IMAGE:
+    - golang:latest
