@@ -28,7 +28,9 @@ func addMiddleware(mux *chi.Mux) {
 
 func addRoutes(mux *chi.Mux) {
 	// Add a simple resource
-	mux.Mount("/api/id", AppResource{}.Routes())
+  mux.Mount("/api/id", AppResource{}.Routes())
+  // lifecycle management hooks
+  mux.Mount("/.service", AppLifecycleResource{}.Routes())
 	// Live a healthy life!
 	mux.Get("/", func(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte("yolo"))
