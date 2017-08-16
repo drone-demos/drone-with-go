@@ -4,10 +4,10 @@ pipeline:
     commands:
       - go build
 
-  test:
+  unit-test:
     image: ${IMAGE}
     commands:
-      - go test
+      - go test ./api
 
   publish:
     image: plugins/docker
