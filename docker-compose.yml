@@ -2,15 +2,6 @@ version: '2'
 
 services:
 
-  redis:
-    container_name: "redis"
-    image: "redis"
-    ports:
-      - "6379:6379"
-    networks:
-      - testnet
-    restart: unless-stopped
-
   app:
     container_name: "hello"
     depends_on:
@@ -22,8 +13,6 @@ services:
      - "3000:3000"
     networks:
       - testnet
-    restart: unless-stopped
-
 
 networks:
   testnet:
