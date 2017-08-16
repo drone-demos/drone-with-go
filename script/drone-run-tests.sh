@@ -15,7 +15,7 @@ docker-compose -p ci --file docker-compose.test.yml ps -q | xargs docker inspect
     fi
     echo The counter is $COUNTER
     let COUNTER=COUNTER+1
-    if [  $COUNTER -gt 50 ]; do
+    if [  $COUNTER -gt 50 ]; then
        exit 1
-   done
+    fi
 done
