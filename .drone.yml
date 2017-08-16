@@ -10,9 +10,10 @@ pipeline:
     commands:
       - go get ./...
       - go build
+    debug: true
 
   unit-test:
-    image: golang
+    image: golang:${GO_VERSION}
     commands:
       - go test ./api
 
