@@ -33,7 +33,7 @@ func TestPostRoute(t *testing.T) {
 	ts := httptest.NewServer(r)
 	defer ts.Close()
 	rx := Response{}
-	_, resp := testRequest(t, ts, "POST", "/app/1", nil)
+	_, resp := testRequest(t, ts, "POST", "/api/id/1", nil)
 	err := json.Unmarshal([]byte(resp), &rx)
 	if err != nil {
 		t.Fatalf("Response incorrect form ", resp)
