@@ -1,12 +1,6 @@
-build:
-  image: golang:1.5
-  environment:
-    - GO15VENDOREXPERIMENT=1
-    - CGO_ENABLED=0
-  commands:
-    - go test -cover -coverprofile coverage.out
-
-publish:
-  coverage:
-    when:
-      branch: master
+pipeline:
+  build:
+    image: golang:1.5
+    commands:
+      - go vet
+      - go test -v -cover
