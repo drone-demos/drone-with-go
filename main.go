@@ -8,5 +8,5 @@ func main() {
 
 // HelloWorld is a function that returns a string containing "hello world".
 func HelloWorld() string {
-	return "hello drone world"
+	return "hello drone world test"
 }
